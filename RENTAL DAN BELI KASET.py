@@ -48,7 +48,7 @@ def Formulir_sewa():
     nik_plgnsewa = input("Masukkan NIK Anda = ")
     nik_plgn.append(nik_plgnsewa)
     bio_plgn['Alamat'] = input('Alamat Rumah')
-oke
+
 def Peminjaman():
     Formulir_sewa()
     # Mamastikan data login dan registrasi
