@@ -75,3 +75,4 @@ def Peminjaman():
         Formulir_sewa()
 
 
+print angel
