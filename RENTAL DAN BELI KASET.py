@@ -38,3 +38,40 @@ def Tabel_hargasewa():
         print('|')
     print('''
     --------------------------------------------------''')
+def Formulir_sewa():
+    Tabel_hargasewa()
+    bio_kaset['Nama kaset'] = input('Masukkan nama kaset Anda = ')
+    bio_kaset['Kode Kaset'] = input('Masukkan kode kaset Anda = ')
+    bio_kaset['Genre kaset'] = input('Masukkan genre kaset Anda = ')
+    bio_kaset['Nomor telefon'] = input('Masukkan nomor telefon Anda = ')
+    jaminan['Nomor telefon'] = input('Masukkan nomor telefon Anda = ')
+    nik_plgnsewa = input("Masukkan NIK Anda = ")
+    nik_plgn.append(nik_plgnsewa)
+    bio_plgn['Alamat'] = input('Alamat Rumah')
+
+def Peminjaman():
+    Formulir_sewa()
+    # Mamastikan data login dan registrasi
+    print("Pastikan data yang anda masukkan sudah benar")
+    print("Name kaset = ",bio_kaset['Nama kaset'])
+    print("Kode Kaset = ",bio_kaset['Kode kaset'])
+    print("Genre Kaset = ", bio_kaset['Nomor telefon'])
+    print("No.Telepon = ", jaminan['Nomor telefon'])
+    print("NIK = ", nik_plgn)
+    print("Alamat = ",bio_plgn['Alamat'])
+
+    # Akumulasi tanggal pinjam dan tanggal pengembalian
+    from datetime import timedelta,datetime
+    tanggal_pinjam = datetime.today()
+    tanggal_kembali = tanggal_pinjam + timedelta(days=7)
+    print(tanggal_pinjam.strftime("Tanggal Peminjaman = %d/%m/%Y, %H:%M:%S"))
+    print(tanggal_kembali.strftime("Tanggal Kembali = %d/%m/%Y, %H:%M:%S"))
+
+    cek2 = input("\nApakah data yang anda masuukan sudah benar ? (y/t) = ")
+    if cek2 == "y":
+        """akan lanjut ke daf HitungHargaSewa yang isisnya perhitungan harga sewa tapi belum di bikin"""
+    else:
+        """Kalo salah akan kembali ke input formulir sewa"""
+        Formulir_sewa()
+
+
