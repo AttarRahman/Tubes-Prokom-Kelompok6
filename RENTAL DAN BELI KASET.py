@@ -125,3 +125,34 @@ def register():
     bio_plgn['Alamat'] = input('Alamat Rumah = ')
     print("Selamat Anda berhasil melakukan registrasi!")
     print(70 * "_")
+
+# Proses login dan register
+if awal == "y":
+    # fungsi login
+    """ ini yg blm register bisa lolos. jadi harus dibikin fungsi biar dia nolakyg blm punya member"""
+
+
+    login()
+    print('\n')
+    show_menu()
+    print("Silahkan masukkan data dibawah ini untuk melengkapi langkah peminjaman kaset")
+elif awal == "t":
+    ask_registrasi = input("Apakah anda ingin melakukan registrasi? (y/t) = ")
+    if ask_registrasi == "y":
+        register()
+        # Memastikan data login dan registrasi
+        print("Pastikan data yang anda masukkan sudah benar")
+        print("Username = ", nama_plgn)
+        print("NIK =", nik_plgn)
+        print("Tempat/Tanggal lahir = ", bio_plgn['Tempat lahir'], ',', bio_plgn['Tanggal lahir'])
+        print("Alamat = ", bio_plgn['Alamat'])
+        cek1 = input("\nApakah data yang anda masukkan sudah benar? (y/t) = ")
+        if cek1 == "y":
+            login()
+        else:
+            register()
+    else:
+        print("Ulangi mengisi formulir sewa")
+        show_menu()
+else:
+    print()    
