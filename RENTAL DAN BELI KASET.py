@@ -74,5 +74,3 @@ def Peminjaman():
         """Kalo salah akan kembali ke input formulir sewa"""
         Formulir_sewa()
 
-
-print angel
