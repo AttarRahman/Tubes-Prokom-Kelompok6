@@ -74,3 +74,54 @@ def Peminjaman():
         """Kalo salah akan kembali ke input formulir sewa"""
         Formulir_sewa()
 
+def HitungHargaSewa():
+    print()
+
+def Pengembalian():
+    print("untuk program pengembalian kaset")
+
+def Pembelian():
+    print()
+
+def show_menu():
+    import sys
+    print("\n")
+    judul_menu = "Pilih Menu"
+    print(judul_menu.center(70, '-'))
+    print("[1]  Peminjaman Kaset")
+    print("[2]  Pengembalian Kaset")
+    print("[3]  Pembelian Kaset")
+    print("[4]  Keluar")
+    pilih_menu = input("Pilih menu --> ")
+    print("\n")
+
+    if pilih_menu == '1':
+        Peminjaman()
+    elif pilih_menu == '2':
+        print("Belum jadi")    
+    elif pilih_menu == '3':
+        print("Belum jadi")
+    elif pilih_menu == '4':
+        sys.exit()
+    else:
+        print("Maaf nomor yang Anda masukkan tidak ada!!")
+        
+def login():
+    print('\n')
+    judul_login = "HALAMAN LOGIN"
+    print(judul_login.center(70, '-'))
+    nama_plgn = input("Masukkan username Anda = ")
+    nik_plgn = input("Masukkan NIK Anda = ")
+
+def register():
+    print(70 * "_")
+    print("Masukkan data dibawah ini dengan benar!")
+    nama_plgnbaru = input("Masukkan username Anda = ")
+    nik_plgnbaru = input("Masukkan NIK Anda = ")
+    nama_plgn.append(nama_plgnbaru)
+    nik_plgn.append(nik_plgnbaru)
+    bio_plgn['Tempat lahir'] = input('Tempat lahir = ')
+    bio_plgn['Tanggal lahir'] = input('Tanggal lahir (contoh : 11 Januari 2002) = ')    
+    bio_plgn['Alamat'] = input('Alamat Rumah = ')
+    print("Selamat Anda berhasil melakukan registrasi!")
+    print(70 * "_")
