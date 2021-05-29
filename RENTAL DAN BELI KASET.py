@@ -125,7 +125,6 @@ def register():
 
 # Proses login dan register
 if awal == "y":
-    """ ini isinya buat login"""
     login()
     print('\n')
     show_menu()
