@@ -125,10 +125,7 @@ def register():
 
 # Proses login dan register
 if awal == "y":
-    # fungsi login
-    """ ini yg blm register bisa lolos. jadi harus dibikin fungsi biar dia nolakyg blm punya member"""
-
-
+    """ ini isinya buat login"""
     login()
     print('\n')
     show_menu()
