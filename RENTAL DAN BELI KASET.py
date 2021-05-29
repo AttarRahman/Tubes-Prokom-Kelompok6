@@ -75,14 +75,11 @@ def Peminjaman():
         Formulir_sewa()
 
 def HitungHargaSewa():
-    print()
-
-def Pengembalian():
-    print("untuk program pengembalian kaset")
-
+    print("untuk perhitungan harga sewa")
+def PenngembalianKaset():
+    print("Untuk pengembalian kaset")
 def Pembelian():
     print()
-
 def show_menu():
     import sys
     print("\n")
