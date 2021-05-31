@@ -43,7 +43,6 @@ def Formulir_sewa():
     bio_kaset['Nama kaset'] = input('Masukkan nama kaset Anda = ')
     bio_kaset['Kode Kaset'] = input('Masukkan kode kaset Anda = ')
     bio_kaset['Genre kaset'] = input('Masukkan genre kaset Anda = ')
-    bio_kaset['Nomor telefon'] = input('Masukkan nomor telefon Anda = ')
     jaminan['Nomor telefon'] = input('Masukkan nomor telefon Anda = ')
     nik_plgnsewa = input("Masukkan NIK Anda = ")
     nik_plgn.append(nik_plgnsewa)
