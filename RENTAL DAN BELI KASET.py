@@ -507,4 +507,99 @@ def pembelianNonMember():
     print("--------------------------")
     print("Jumlah Bayar :", totalharga)
     print("--------------------------")
+
+def show_menu_member():
+    print("\n")
+    judul_menu = "Pilih Menu"
+    print(judul_menu.center(50,'-'))
+    print("[1] Peminjaman Kaset")
+    print("[2] Pengembalian Kaset")
+    print("[3] Pembelian Kaset")
+    print("[4] Keluar")
+    pilih_menu = input("Pilih Menu -->")
+    print("\n")
+    
+    if pilih_menu == '1':
+        PeminjamanMember()
+    elif pilih_menu == '2':
+        PengembalianMember()
+    elif pilih_menu == '3':
+        PembelianMember()
+    elif pilih_menu == '4':
+        sys.exit()
+    else:
+        print("Maaf nomor yang anda masukkan tidak ada!!")
+        
+def show_menu_nonmember():
+    print("\n")
+    judul_menu = "Pilih Menu"
+    print(judul_menu.center(50,'-'))
+    print("[1] Peminjaman Kaset")
+    print("[2] Pengembalian Kaset")
+    print("[3] Pembelian Kaset")
+    print('[4] Keluar")
+    pilih_menu = input("Pilih menu -->")
+    print("\n")
+          
+    if pilih_menu == '1':
+          PeminjamanNonmember()
+    elif pilih_menu == '2':
+          PengembalianNonmember()
+    elif pilih_menu == '3':
+          PembelianNonmember()
+    elif pilih_menu == '4':
+          sys.exit()
+    else:
+          print("Maaf nomor yang anda masukkan tidak ada!!)
+                
+def login():
+    print('\n')
+    judul_login = "HALAMAN LOGIN"
+    print(judul_login.center(50,'-'))
+    nama_plgn = input("Masukkan username Anda = ")
+    nik_plgn = input("Masukkan NIK Anda = ")
+  
+ def register():
+    print(50 * "-")
+    print("Masukkan data dibawah ini dengan benar!)
+    nama_plngbaru = input("Masukkan username Anda = ")
+    nik_plgnbaru = input ("Masukkan username Anda = ")
+    nama_plgn.append(nama_plgnbaru)
+    nik_plgn.append(nik_plgnbaru)      
+    bio_plgn['Tempat lahir'] = input('Tempat lahir = ')
+    bio_plgn['Tanggal lahir'] = input('Tanggal lahir (contoh : 11 Januari 2002) = ')
+    bio_plgn['Alamat'] = input('Alamat Rumah = ')
+    print("Selamat Anda berhasil melakukan registrasi!")
+    print(70 * "_")
+    
+# Proses Login dan Registrasi
+if awal == "y":
+    login()
+    print('\n')
+    show_menu_member()
+    print("Silahkan masukkan data dibawah ini ubtuk melengkapi langkah peminjaman kaset")
+elif awal == "t":
+    ask_registrasi =  input("Apakah anda ingin melakukan registrasi? (y/t) = ")
+    if ask_registrasi == "y":
+          registrasi()
+          # Memastikan data login dan registrasi
+          print("Pastikan data yang and masukkan sudah benar")
+          print("Username = ", nama_plgn)
+          print("NIK =",nik_plgn)
+          print("Tempat/Tanggal lahir = ", bio_plgn['Tempat lahir'], ',' ,bio_plgn ['Tanggal lahir])
+          print("Alamat =, bio_plgn['Alamat'])
+          cek1 = input ("\nApakah data yang anda masukkan sudah benar? (y/t) =")
+          if cek1 == "y":
+                login()
+                print('\n')
+                show_menu_member()
+          else:
+                register()
+    else:
+          show_menu_nonmember()
+else:
+    print()
+         
+      
+    
     
