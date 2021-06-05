@@ -19,7 +19,16 @@ Penyewaan dan Pembelian kaset pada Toko INDENTURE DISC.
 **Berkas ["Laporan tugas besar tahap 1.pdf"]**
 
 Merupakan berkas laporan yang berisi rancangan awal program penyewaan dan 
-pembelian kaset.
+pembelian kaset yang terdiri dari,
+yang terdiri atas,
+1. Latar Belakang
+2. Basis
+3. Diagram Alir
+4. Penjelasan Diagram Alir
+5. Fitur
+6. Keunggulan Program
+7. Potensi Dimasa Datang
+8. Daftar Pustaka
 
 **Berkas ["Program Penyewaan dan Pembelian Kaset.py"]**
 
