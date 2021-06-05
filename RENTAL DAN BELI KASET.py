@@ -133,4 +133,200 @@ ______________________________________________________________
     else:
         Formulir_sewa()
 
-        
+def StrukPeminjamanKasetMember():
+    Kode_kaset = bio_kaset['Kode kaset']
+    jumlahpesan = bio_kaset['Jumlah kaset']
+    if Kode_kaset == "A":
+        #Genre Kaset = 'Thriller'
+        Genre_kaset = 'Thriller'
+        harga = (8000 * jumlahpesan)/2
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    elif Kode_kaset == "B":
+        #Genre kaset = 'Comedy'
+        Genre_kaset = 'Comedy'
+        harga = (6000 * jumlahpesan)/2
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    elif Kode_kaset == "C":
+        #Genre kaset = 'Romance'
+        Genre_kaset = 'Romance'
+        harga = (6000 * jumlahpesan)/2
+        diskon = int(harga * 0.1)
+        totalharga = int((0.5)*harga - diskon)
+    elif Kode_kaset == "D":
+        #Genre kaset = 'Action'
+        Genre_kaset = 'Action'
+        harga = (7000 * jumlahpesan)/2
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    elif Kode_kaset == "E":
+        #Genre kaset = 'Drama'
+        Genre_kaset = 'Drama'
+        harga = (5000 * jumlahpesan)/2
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    else:
+        Genre_kaset = "-"
+        harga = "-"
+        diskon = "-"
+        totalharga = "-"
+    print(""" 
+    Untuk melakukan transaksi pembayaran silahkan pilih metode pembayaran Anda!
+    ==============================
+     A. Tunai
+     B. Ovo
+     C. Transfer 
+     D. Dana
+    ==============================
+     """)
+    menupembayaran = str(input("Pilih metode pembayaran Anda = "))
+    if menupembayaran == "A":
+        #print("Tunai")
+        bayar = int(input("=== Masukkan uang Anda = "))
+        print("\n")
+        print("="*45)
+        nama = "STRUK PEMBAYARAN"
+        nama2 = "INDENTURE DISC"
+        print(nama.center(45, "="))
+        print(nama2.center(45))
+        print("=" * 45)
+        print("\nPeminjaman Kaset :")
+        print(bio_kaset['Nama kaset'], "(%s)"%(Genre_kaset), "x", jumlahpesan,"    ", harga)
+        print("-"*45)
+        print("Total Harga                      ", harga)
+        print("Total Bayar                      ", totalharga)
+        print("Tunai                            ", bayar)
+        print("Diskon 10%                       ", diskon)
+        print("Tunai                            ", bayar)
+        print("Kembalian                        ", bayar - totalharga)
+        print("Kode Peminjaman                  ", nomor_kartupeminjaman)
+        print("-"*45)
+        print("\n==========================Terimakasih,Selamat Datang Kembali=========================")
+
+    else:
+        print("\n")
+        print("=" * 45)
+        nama = "STRUK PEMBAYARAN"
+        nama2 = "INDENTURE DISC"
+        print(nama.center(45, "="))
+        print(nama2.center(45))
+        print("=" * 45)
+        print("\nPeminjaman Kaset :")
+        print(bio_kaset['Nama kaset'], "(%s)" % (Genre_kaset), "x", jumlahpesan, "    ", harga)
+        print("-" * 45)
+        print("Total Harga                      ", harga)
+        print("Diskon 10%                       ", diskon)
+        print("Total Bayar                      ", totalharga)
+        print("Menu Pembayaran    :", menupembayaran)
+        print("Kode Peminjaman                  ", nomor_kartupeminjaman)
+        print("-" * 45)
+        print("Silahkan Melakukan Pembayaran Segera !! ")
+        print(""" 
+                _________________________________
+                |Note:                          |
+                | 1. Ovo =345546744534          |
+                | 2. Tranfer = 23456646543236664|
+                | 3. Dana = 4353466754          | 
+                ---------------------------------   
+                      """)
+        print("\n==========================Terimakasih,Selamat Datang Kembali=========================")
+
+def StrukPeminjamanPembelianNonMember():
+    Kode_kaset = bio_kaset['Kode kaset']
+    jumlahpesan = bio_kaset['Jumlah kaset']
+    if Kode_kaset == "A":
+        #Genre Kaset = 'Thriller'
+        Genre_kaset = 'Thriller'
+        harga = (8000 * jumlahpesan)/2
+        diskon = 0
+        totalharga = int(harga - diskon)
+    elif Kode_kaset == "B":
+        #Genre kaset = 'Comedy'
+        Genre_kaset = 'Comedy'
+        harga = (6000 * jumlahpesan)/2
+        diskon = 0
+        totalharga = int(harga - diskon)
+    elif Kode_kaset == "C":
+        #Genre kaset = 'Romance'
+        Genre_kaset = 'Romance'
+        harga = (6000 * jumlahpesan)/2
+        diskon = 0
+        totalharga = int(harga - diskon)
+    elif Kode_kaset == "D":
+        #Genre kaset = 'Action'
+        Genre_kaset = 'Action'
+        harga = (7000 * jumlahpesan)/2
+        diskon = 0
+        totalharga = int(harga - diskon)
+    elif Kode_kaset == "E":
+        #Genre kaset = 'Drama'
+        Genre_kaset = 'Drama'
+        harga = (5000 * jumlahpesan)/2
+        diskon = 0
+        totalharga = int(harga - diskon)
+    else:
+        Genre_kaset = "-"
+        harga = "-"
+        diskon = "-"
+        totalharga = "-"
+    print(""" Untuk melakukan transaksi pembayaran silahkan pilih metode pembayaran Anda!
+    ==============================
+     A. Tunai
+     B. Ovo
+     C. Transfer 
+     D. Dana
+    ==============================
+     """)
+    menupembayaran = str(input("Pilih metode pembayaran Anda = "))
+    if menupembayaran == "A":
+        #print("Tunai")
+        bayar = int(input("=== Masukkan uang Anda = "))
+        print("\n")
+        print("="*45)
+        nama = "STRUK PEMBAYARAN"
+        nama2 = "INDENTURE DISC"
+        print(nama.center(45, "="))
+        print(nama2.center(45))
+        print("=" * 45)
+        print("\nPeminjaman Kaset :")
+        print(bio_kaset['Nama kaset'], "(%s)"%(Genre_kaset), "x", jumlahpesan,"    ", harga)
+        print("-"*45)
+        print("Total Harga                      ", harga)
+        print("Total Bayar                      ", totalharga)
+        print("Tunai                            ", bayar)
+        print("Diskon 10%                       ", diskon)
+        print("Tunai                            ", bayar)
+        print("Kembalian                        ", bayar - totalharga)
+        print("Kode Peminjaman                  ", nomor_kartupeminjaman)
+        print("-"*45)
+        print("\n==========================Terimakasih,Selamat Datang Kembali=========================")
+    else:
+        #metode non tunai
+        print("\n")
+        print("=" * 45)
+        nama = "STRUK PEMBAYARAN"
+        nama2 = "INDENTURE DISC"
+        print(nama.center(45, "="))
+        print(nama2.center(45))
+        print("=" * 45)
+        print("\nPeminjaman Kaset :")
+        print(bio_kaset['Nama kaset'], "(%s)" % (Genre_kaset), "x", jumlahpesan, "    ", harga)
+        print("-" * 45)
+        print("Total Harga                      ", harga)
+        print("Diskon 10%                       ", diskon)
+        print("Total Bayar                      ", totalharga)
+        print("Menu Pembayaran    :", menupembayaran)
+        print("Kode Peminjaman                  ", nomor_kartupeminjaman)
+        print("-" * 45)
+        print("Silahkan Melakukan Pembayaran Segera !! ")
+        print(""" 
+                _________________________________
+                |Note:                          |
+                | 1. Ovo =345546744534          |
+                | 2. Tranfer = 23456646543236664|
+                | 3. Dana = 4353466754          | 
+                ---------------------------------   
+                      """)
+        print("\n==========================Terimakasih,Selamat Datang Kembali=========================")
+
