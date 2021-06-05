@@ -448,3 +448,63 @@ def PembelianMember():
     print("Jumlah Bayar :", totalharga)
     print("--------------------------")
         
+def pembelianNonMember():
+    print("""
+    ====================================================
+
+                    TOKO INDENTURE DISC
+                    Daftar Harga Kaset
+
+    ====================================================
+        A. Thriller : Rp 30.000
+        B. Comedy   : Rp 25.000
+        C. Romance  : Rp 50.000
+        D. Action   : Rp 40.000
+        E. Drama    : Rp 60.000
+    ====================================================
+        """)
+    pesan = str(input("Masukkan Genre kaset yang ingin dibeli = "))
+    jumlahpesan = int(input("Masukkan jumlah pesanan = "))
+    if pesan == "A":
+        Genre_kaset = "Thriller"
+        harga = (30000 * jumlahpesan)
+        diskon = (0)
+        totalharga = int(harga)
+    elif pesan == "B":
+        Genre_kaset = "Comedy"
+        harga = (25000 * jumlahpesan)
+        diskon = (0)
+        totalharga = int(harga)
+    elif pesan == "C":
+        Genre_kaset = "Romance"
+        harga = (50000 * jumlahpesan)
+        diskon = (0)
+        totalharga = int(harga)
+    elif pesan == "D":
+        Genre_kaset = "Action"
+        harga = (40000 * jumlahpesan)
+        diskon = (0)
+        totalharga = int(harga)
+    elif pesan == "e":
+        Genre_kaset = "Drama"
+        harga = (60000 * jumlahpesan)
+        diskon = (0)
+        totalharga = int(harga)
+    else:
+        Genre_kaset = "-"
+        harga = "-"
+        diskon = "-"
+        totalharga = "-"
+        print("Menu tidak tersedia")
+
+    print("--------------------------")
+    print("Toko Indenture Disc")
+    print("--------------------------")
+    print("Menu :", Genre_kaset)
+    print("Jumlah Pesan :", jumlahpesan)
+    print("Harga :", harga)
+    print("Diskon :", diskon)
+    print("--------------------------")
+    print("Jumlah Bayar :", totalharga)
+    print("--------------------------")
+    
