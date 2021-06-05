@@ -330,3 +330,121 @@ def StrukPeminjamanPembelianNonMember():
                       """)
         print("\n==========================Terimakasih,Selamat Datang Kembali=========================")
 
+def IsikartuPeminjamandanPengembalian():
+    print("  Nomor Nota           = ", nomor_kartupeminjaman)
+    print("  NIK                  = ", nik_plgn)
+    print("  Alamat               = ", bio_plgn['Alamat'])
+    print("  Nama Kaset           = ", bio_kaset['Nama kaset'])
+    print("  Kode Kaset           = ", bio_kaset['Kode kaset'])
+    print("  Genre Kaset          = ", bio_kaset['Genre kaset'])
+    print(tanggal_pinjam.strftime("  Tanggal Kembali     = %d/%m/%Y, %H:%M:%S"))
+    print(tanggal_kembali.strftime("  Tanggal Kembali     = %d/%m/%Y, %H:%M:%S"))
+
+def PengembalianMember():
+    nomor_kartupeminjaman = input("Masukkan nomor kartu peminjaman Anda = ")
+    print("Apakah benar %s nomor kartu peminjaman Anda? (y/t)" %(nomor_kartupeminjaman))
+    cek2 = input(">>> ")
+    if cek2 == "y":
+        print("""
+______________________________________________________________
+|              KARTU PENGEMBALIAN INDENTURE DISC             |
+|                 Jln.Gagak No.15, Surakarta                 |
+--------------------------------------------------------------
+                """)
+
+        IsikartuPeminjamandanPengembalian()
+        cekb = input("Apakah Anda ingin melanjutkan transaksi pembayaran? (y/t) = ")
+        if cekb == "y":
+            StrukPeminjamanKasetMember()
+            cekc = input("Apakah Anda ingin melakukan transaksi lainnya? (y/t) = ")
+            if cekc == "y":
+                show_menu_member()
+        else:
+            sys.exit()
+    else:
+        PengembalianMember()
+
+def PengembalianNonMember():
+    nomor_kartupeminjaman = input("Masukkan nomor kartu peminjaman Anda = ")
+    print("Apakah benar %s nomor kartu peminjaman Anda? (y/t)" % (nomor_kartupeminjaman))
+    cek2 = input(">>> ")
+    if cek2 == "y":
+        print("""
+______________________________________________________________
+|              KARTU PENGEMBALIAN INDENTURE DISC             |
+|                 Jln.Gagak No.15, Surakarta                 |
+--------------------------------------------------------------
+
+                """)
+        IsikartuPeminjamandanPengembalian()
+        cek3 = input("Apakah Anda ingin melanjutkan transaksi pembayaran? (y/t) = ")
+        if cek3 == 'y':
+            StrukPeminjamanPembelianNonMember()
+            cek4 = input("Apakah Anda ingin melakukan transaksi lainnya? (y/t) = ")
+            if cek4 == "y":
+                show_menu_nonmember()
+        else:
+            sys.exit()
+    else:
+        PengembalianNonMember()
+
+def PembelianMember():
+    print("""
+    ====================================================
+
+                    TOKO INDENTURE DISC
+                    Daftar Harga Kaset
+
+    ====================================================
+        A. Thriller : Rp 30.000
+        B. Comedy   : Rp 25.000
+        C. Romance  : Rp 50.000
+        D. Action   : Rp 40.000
+        E. Drama    : Rp 60.000
+    ====================================================
+        """)
+    pesan = str(input("Masukkan Genre kaset yang ingin dibeli = "))
+    jumlahpesan = int(input("Masukkan jumlah pesanan = "))
+    if pesan == "A":
+        Genre_kaset = "Thriller"
+        harga = (30000 * jumlahpesan)
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    elif pesan == "B":
+        Genre_kaset = "Comedy"
+        harga = (25000 * jumlahpesan)
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    elif pesan == "C":
+        Genre_kaset = "Romance"
+        harga = (50000 * jumlahpesan)
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    elif pesan == "D":
+        Genre_kaset = "Action"
+        harga = (40000 * jumlahpesan)
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    elif pesan == "e":
+        Genre_kaset = "Drama"
+        harga = (60000 * jumlahpesan)
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    else:
+        Genre_kaset = "-"
+        harga = "-"
+        diskon = "-"
+        totalharga = "-"
+        print("Menu tidak tersedia")
+
+    print("--------------------------")
+    print("Toko Indenture Disc")
+    print("--------------------------")
+    print("Menu :", Genre_kaset)
+    print("Jumlah Pesan :", jumlahpesan)
+    print("Harga :", harga)
+    print("Diskon :", diskon)
+    print("--------------------------")
+    print("Jumlah Bayar :", totalharga)
+    print("--------------------------")
+        
