@@ -39,12 +39,12 @@ pembelian kaset pada Toko INDENTURE DISC.
 
 Merupakan penjelasan singkat isi dari repository.
 
-**System Requirement**
+# System-Requirement
 
 1. Python
 2. 
 
-**Penjelasan Singkat Program**
+# Penjelasan-Singkat-Program
 
 1. Pada program penyewaan dan pembelian kaset kita akan diberikan opsi sebagai 
    member atau bukan member. Bagi yang bukan member juga ditawarkan apabila ingin 
