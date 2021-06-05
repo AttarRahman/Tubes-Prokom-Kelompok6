@@ -41,8 +41,8 @@ Merupakan penjelasan singkat isi dari repository.
 
 # System-Requirement
 
-1. Python
-2. 
+1. Spesifikasi OS : Windows 7 atau lebih dan MacOS
+2. Versi Python : 3.7 atau lebih
 
 # Penjelasan-Singkat-Program
 
