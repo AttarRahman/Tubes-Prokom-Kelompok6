@@ -654,3 +654,225 @@ ______________________________________________________________
                 show_menu_nonmember()
         else:
             sys.exit()
+
+def Tabel_hargabeli():
+    print('''
+    ___________________________________________________
+    |  No |   Genre Film   |  Kode Film  | Harga Beli |
+    ---------------------------------------------------
+    |  1. |  Thriller      |      A      |   15000    | 
+    |  2. |  Comedy        |      B      |   13000    |
+    |  3. |  Romance       |      C      |   13000    |
+    |  4. |  Action        |      D      |   17000    |
+    |  5. |  Drama         |      E      |   15000    |
+    --------------------------------------------------- ''')
+def Pembelian():
+    print("""Diskon Alert !!!
+Untuk para pelanggan setia Toko Indenture Disc, ada promo diskon 10% 
+untuk pembelian kaset semua genre yang ada di Toko Indenture Disc. 
+Diskon berlaku untuk member maupun nonmember ~~~""")
+    Tabel_hargabeli()
+    print("Silahkan masukkan data dibawah ini untuk melengkapi langkah pembalian kaset")
+    bio_kaset['Nama kaset'] = input('\nMasukkan nama kaset Anda = ')
+    bio_kaset['Kode kaset'] = input('Masukkan kode kaset Anda = ')
+    bio_kaset['Genre kaset'] = input('Masukkan genre kaset Anda = ')
+    bio_kaset['Jumlah kaset'] = int(input('Masukkan jumlah kaset = '))
+    Kode_kaset = bio_kaset['Kode kaset']
+    jumlahpesan = bio_kaset['Jumlah kaset']
+    if Kode_kaset == "A":
+        # Genre Kaset = 'Thriller'
+        Genre_kaset = 'Thriller'
+        harga = (15000 * jumlahpesan)
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    elif Kode_kaset == "B":
+        # Genre kaset = 'Comedy'
+        Genre_kaset = 'Comedy'
+        harga = (13000 * jumlahpesan)
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    elif Kode_kaset == "C":
+        # Genre kaset = 'Romance'
+        Genre_kaset = 'Romance'
+        harga = (13000 * jumlahpesan)
+        diskon = int(harga * 0.1)
+        totalharga = int((0.5) * harga - diskon)
+    elif Kode_kaset == "D":
+        # Genre kaset = 'Action'
+        Genre_kaset = 'Action'
+        harga = (17000 * jumlahpesan)
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    elif Kode_kaset == "E":
+        # Genre kaset = 'Drama'
+        Genre_kaset = 'Drama'
+        harga = (15000 * jumlahpesan)
+        diskon = int(harga * 0.1)
+        totalharga = int(harga - diskon)
+    else:
+        Genre_kaset = "-"
+        harga = "-"
+        diskon = "-"
+        totalharga = "-"
+    print(""" 
+Untuk melakukan transaksi pembayaran silahkan pilih metode pembayaran Anda!
+                ==============================
+                  A. Tunai
+                  B. Ovo
+                  C. Transfer 
+                  D. Dana
+                ==============================
+         """)
+    menupembayaran = str(input("Pilih metode pembayaran Anda = "))
+    if menupembayaran == "A":
+        # print("Tunai")
+        print("Total harga yang harus Anda bayarkan = Rp", totalharga)
+        bayar = int(input("Masukkan uang tunai Anda             = Rp "))
+        print("\n")
+        print("=" * 45)
+        nama = "STRUK PEMBAYARAN"
+        nama2 = "INDENTURE DISC"
+        print(nama.center(45, "="))
+        print(nama2.center(45))
+        print("=" * 45)
+        print("\nPembelian Kaset :")
+        print(bio_kaset['Nama kaset'], "(%s)" % (Genre_kaset), "x", jumlahpesan, "    ", harga)
+        print("-" * 45)
+        print("Total Harga                      ", harga)
+        print("Diskon 10%                       ", diskon)
+        print("                          -----------------")
+        print("Total Bayar                      ", totalharga)
+        print("Tunai                            ", bayar)
+        print("Kembalian                        ", bayar - totalharga)
+        print("-" * 45)
+        print("\n=========Terimakasih,Selamat Datang Kembali==========")
+        cek1 = input("Apakah Anda ingin melakukan transaksi lainnya? (y/t) = ")
+        if cek1.upper() == "Y":
+            show_menu_nonmember()
+        else:
+            sys.exit()
+
+    else:
+        # Melalui Ovo,Transfer, dan Dana
+        print("Total harga yang harus Anda bayarkan = Rp", totalharga)
+        print(""" 
+                    ____________________________________________________
+                    | Note:                                            |
+                    | 1. Ovo          = 085555666777 (a.n Bagus S)     |
+                    | 2. Mbanking(BCA)= 20210002901 (a.n Cristin A)    |
+                    | 3. Dana         = 089111222334 (a.n Erika N S    | 
+                    ----------------------------------------------------
+                           """)
+        cara = int(input("Pilih >>> "))
+        if cara == 1:
+            menu = 'OVO payment'
+            print("""
+Batas waktu pembayaran Anda 10 menit, silahkan melakukan transaksi segera.""")
+            print("\nMenunggu proses pembayaran...")
+            # jeda 10 detik
+            time.sleep(10)
+            print("Pembayaran Berhasil")
+            print("\n")
+            print("=" * 45)
+            nama = "STRUK PEMBAYARAN"
+            nama2 = "INDENTURE DISC"
+            print(nama.center(45))
+            print(nama2.center(45))
+            print("=" * 45)
+            print("\nPembelian Kaset :")
+            print(bio_kaset['Nama kaset'], "(%s)" % (Genre_kaset), "x", jumlahpesan, "    ", harga)
+            print("-" * 45)
+            print("Total Harga (50% pembayaran)     ", harga)
+            print("Diskon                           ", diskon)
+            print("                          -----------------")
+            print("Total Bayar                      ", totalharga)
+            print("Menu Pembayaran    :", menu)
+            print("Kode Peminjaman                  ", nomor_kartupeminjaman)
+            print("-" * 45)
+            print("\n===========Terimakasih,Selamat Datang Kembali============")
+        elif cara == 2:
+            menu = 'Mbanking payment'
+            print("""
+Batas waktu pembayaran Anda 10 menit, silahkan melakukan transaksi segera.""")
+            print("\nMenunggu proses pembayaran...")
+            # jeda 10 detik
+            time.sleep(10)
+            print("Pembayaran Berhasil")
+            print("\n")
+            print("=" * 45)
+            nama = "STRUK PEMBAYARAN"
+            nama2 = "INDENTURE DISC"
+            print(nama.center(45))
+            print(nama2.center(45))
+            print("=" * 45)
+            print("\nPeminjaman Kaset :")
+            print(bio_kaset['Nama kaset'], "(%s)" % (Genre_kaset), "x", jumlahpesan, "    ", harga)
+            print("-" * 45)
+            print("Total Harga (50% pembayaran)     ", harga)
+            print("Diskon                           ", diskon)
+            print("                          -----------------")
+            print("Total Bayar                      ", totalharga)
+            print("Menu Pembayaran    :", menu)
+            print("Kode Peminjaman                  ", nomor_kartupeminjaman)
+            print("-" * 45)
+            print("\n===========Terimakasih,Selamat Datang Kembali============")
+        elif cara == 3:
+            menu = 'Dana payment'
+            print("""
+Batas waktu pembayaran Anda 10 menit, silahkan melakukan transaksi segera.""")
+            print("\nMenunggu proses pembayaran...")
+            # jeda 10 detik
+            time.sleep(10)
+            print("Pembayaran Berhasil")
+            print("\n")
+            print("=" * 45)
+            nama = "STRUK PEMBAYARAN"
+            nama2 = "INDENTURE DISC"
+            print(nama.center(45))
+            print(nama2.center(45))
+            print("=" * 45)
+            print("\nPeminjaman Kaset :")
+            print(bio_kaset['Nama kaset'], "(%s)" % (Genre_kaset), "x", jumlahpesan, "    ", harga)
+            print("-" * 45)
+            print("Total Harga (50% pembayaran)     ", harga)
+            print("Diskon                           ", diskon)
+            print("                          -----------------")
+            print("Total Bayar                      ", totalharga)
+            print("Menu Pembayaran    :", menu)
+            print("Kode Peminjaman                  ", nomor_kartupeminjaman)
+            print("-" * 45)
+            print("\n===========Terimakasih,Selamat Datang Kembali============")
+        else:
+            pass
+        cek1 = input("Apakah Anda ingin melakukan transaksi lainnya? (y/t) = ")
+        if cek1.upper() == "Y":
+            show_menu_member()
+        else:
+            sys.exit()
+def AksesMasuk():
+    halamanutama()
+    global Que1, Que2
+    Que1 = input("Apakah anda member? (y/t) = ")
+    # Proses login dan register
+    if (Que1.upper() == "Y"):
+        login()
+        show_menu_member()
+    elif (Que1.upper() == "T"):
+        Que2 = input("Apakah anda ingin melakukan registrasi? (y/t) = ")
+        registrasi()
+        Que3 = input("\nApakah data yang anda masukkan sudah benar? (y/t) = ")
+        if (Que3.upper() == "Y"):
+            correct = "Registrasi Berhasil"
+            print(correct.center(50, "="))
+            print('\n')
+            AksesMasuk()
+        else:
+            print("Masukkan data yang benar!")
+            registrasi()
+            print(50 * "_")
+    else:
+        #jalur nonmember
+        print("Maaf pilihan yang Anda masukkan salah")
+        print("Anda masuk program sebagai non member")
+        show_menu_nonmember()
+AksesMasuk()            
