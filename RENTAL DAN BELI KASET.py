@@ -129,3 +129,104 @@ def Formulirsewa_member():
     bio_kaset['Nama kaset'] = input('\nMasukkan nama kaset Anda    = ')
     bio_kaset['Kode kaset'] = input('Masukkan kode kaset Anda    = ')
     bio_kaset['Genre kaset'] = input('Masukkan genre kaset Anda   = ')
+    bio_kaset['Jumlah kaset'] = int(input('Masukkan jumlah kaset       = '))
+    jaminan = input('Masukkan nomor telefon Anda = ')
+
+def Formulirsewa_nonmember():
+    global alamat, bio_kaset, jaminan
+    print("Silahkan masukkan data dibawah ini untuk melengkapi langkah peminjaman kaset")
+    bio_kaset['Nama kaset'] = input('\nMasukkan nama kaset Anda    = ')
+    bio_kaset['Kode kaset'] = input('Masukkan kode kaset Anda    = ')
+    bio_kaset['Genre kaset'] = input('Masukkan genre kaset Anda   = ')
+    bio_kaset['Jumlah kaset'] = int(input('Masukkan jumlah kaset       = '))
+    jaminan = input('Masukkan nomor telefon Anda = ')
+    nik_nonmember = input("Masukkan NIK Anda           = ")
+    nik_plgn.append(nik_nonmember)
+    alamat = input('Alamat Rumah                = ')
+def PeminjamanMember():
+    global hari, date1, date2, date0, tanggal_pinjam, batas_pinjam
+    Tabel_hargasewa()
+    Formulirsewa_member()
+    # Memastikan data login dan registrasi
+    print("\nPastikan data yang anda masukkan sudah benar")
+    print("Name kaset   = ", bio_kaset['Nama kaset'])
+    print("Jumlah kaset = ", bio_kaset['Jumlah kaset'])
+    print("Kode kaset   = ", bio_kaset['Kode kaset'])
+    print("Genre kaset  = ", bio_kaset['Genre kaset'])
+    print("No.Telepon   = ", jaminan)
+    print("NIK          = ", nik_plgn)
+    print("Alamat       = ", alamat)
+    # Akumulasi tanggal pinjam dan tanggal pengembalian
+    tanggal_pinjam = input('Tanggal mulai peminjaman kaset (YYYY-MM-DD) = ')
+    year, month, day = map(int, tanggal_pinjam.split('-'))
+    date0 = datetime.datetime(year, month, day)
+    batas_pinjam = input('Batas pengembalian kaset (YYYY-MM-DD) = ')
+    year, month, day = map(int, batas_pinjam.split('-'))
+    date1 = datetime.datetime(year, month, day)
+    date2 = datetime.datetime(year, month, day)
+    print("Tanggal pinjam            = ", tanggal_pinjam)
+    print("Tangal Batas Pengembalian =", batas_pinjam)
+    Ques1 = input("\nApakah data yang anda masukan sudah benar ? (y/t) = ")
+    print()
+    if (Ques1.upper() == "Y"):
+        print("""
+______________________________________________________________
+|               KARTU PEMINJAMAN INDENTURE DISC              |
+|                 Jln.Gagak No.15, Surakarta                 |
+--------------------------------------------------------------
+                """)
+        IsikartuPeminjamandanPengembalian()
+        Ques2 = input("Apakah Anda ingin melanjutkan transaksi pembayaran? (y/t) = ")
+        if (Ques2.upper() == "Y"):
+            StrukPeminjamanPengembalianMember()
+            Ques3 = input("Apakah Anda ingin melakukan transaksi lainnya? (y/t) = ")
+            if (Ques3.upper() == "Y"):
+                show_menu_member()
+        else:
+            halamanutama()
+            sys.exit()
+    else:
+        PeminjamanMember()
+
+def PeminjamanNonmember():
+    global date0, date1, date2
+    Tabel_hargasewa()
+    Formulirsewa_nonmember()
+    # Mamastikan data login dan registrasi
+    print("\nPastikan data yang anda masukkan sudah benar")
+    print("Name kaset   = ", bio_kaset['Nama kaset'])
+    print("Jumlah kaset = ", bio_kaset['Jumlah kaset'])
+    print("Kode kaset   = ", bio_kaset['Kode kaset'])
+    print("Genre kaset  = ", bio_kaset['Genre kaset'])
+    print("No.Telepon   = ", jaminan)
+    print("NIK          = ", nik_plgn)
+    print("Alamat       = ", alamat)
+    # Akumulasi tanggal pinjam dan tanggal pengembalian
+    tanggal_pinjam = input('Tanggal mulai peminjaman kaset (YYYY-MM-DD) = ')
+    year, month, day = map(int, tanggal_pinjam.split('-'))
+    date0 = datetime.datetime(year, month, day)
+    batas_pinjam = input('Batas pengembalian kaset (YYYY-MM-DD) = ')
+    year, month, day = map(int, batas_pinjam.split('-'))
+    date1 = datetime.datetime(year, month, day)
+    date2 = datetime.datetime(year, month, day)
+    print("Tanggal pinjam            = ", tanggal_pinjam)
+    print("Tangal Batas Pengembalian =", batas_pinjam)
+    Ques1 = input("\nApakah data yang Anda masukkan sudah benar ? (y/t) = ")
+    print()
+    if (Ques1.upper() == "Y"):
+        print("""
+______________________________________________________________
+|               KARTU PEMINJAMAN INDENTURE DISC              |
+|                 Jln.Gagak No.15, Surakarta                 |
+--------------------------------------------------------------
+                """)
+        IsikartuPeminjamandanPengembalian()
+        Ques2 = input("Apakah Anda ingin melanjutkan transaksi pembayaran? (y/t) = ")
+        if (Ques2.upper() == "Y"):
+            StrukPeminjamanPembelianNonMember()
+            Ques3 = input("Apakah Anda ingin melakukan transaksi lainnya? (y/t) = ")
+            if (Ques3.upper() == "Y"):
+                show_menu_nonmember()
+        else:
+            sys.exit()
+    else:
