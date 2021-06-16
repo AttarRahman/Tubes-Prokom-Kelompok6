@@ -1,134 +1,134 @@
-import sys
 # PROGRAM PENYEWAAN DAN PEMBELIAN KASET
-Judul_Program = "PROGRAM SEWA & BELI KASET"
-print(50 * "=")
-print(Judul_Program.center(50))
-print(50 * "=")
-awal = input("Apakah anda member? (y/t) = ")
-nama_plgn = []
-nik_plgn = []
-bio_plgn = {}
-bio_kaset = {}
-jaminan = {}
-
-# Akumulasi tanggal pinjam dan tanggal pengembalian
-from datetime import timedelta, datetime
-tanggal_pinjam = datetime.today()
-tanggal_kembali = tanggal_pinjam + timedelta(days=7)
+import sys
+import time
+import datetime
 # Nomor kartu peminjaman
 import random
 nomor_pinjam = random.randrange(1, 10 ** 6)
 nomor_kartupeminjaman = '{:08}'.format(nomor_pinjam)
 
-def Tabel_hargasewa():
-    No = [1, 2, 3, 4, 5]
-    Genre_film = ['Thriller', 'Comedy', 'Romance', 'Action', 'Drama']
-    Kode_film = ['A', 'B', 'C', 'D', 'E']
-    Harga_sewa = [8000, 6000, 6000, 7000, 5000]
-    print('''
-    __________________________________________________
-    | No |   Genre Film   |  Kode Film  | Harga Sewa |
-    --------------------------------------------------''')
-    for x in range(len(No)):
-        isi = str(No[x])
-        print('    |   ' + isi, end='')
-        for y in range(3 - 6 - len(isi)):
-            print(' ', end='')
-        isi1 = str(Genre_film[x])
-        print('| ' + isi1, end='')
-        for y in range(20 - 5 - len(isi1)):
-            print(' ', end='')
-        isi2 = str(Kode_film[x])
-        print('|            ' + isi2, end='')
-        for y in range(20 - 3 - len(isi2)):
-            print('', end='')
-        isi3 = str(Harga_sewa[x])
-        print('|        ' + isi3, end='')
-        for y in range(20 - 5 - len(isi3)):
-            print('', end='')
-        print('|')
-    print('''
-    --------------------------------------------------''')
+# Data List
+nama_plgn = []
+nik_plgn = []
+tempat_lahir = []
+tanggal_lahir = []
+nomor_telefon = []
+alamat = []
+bio_kaset = {}
+jaminan = []
 
-def Formulir_sewa():
-    Tabel_hargasewa()
-    print("Silahkan masukkan data dibawah ini untuk melengkapi langkah peminjaman kaset")
-    bio_kaset['Nama kaset'] = input('\nMasukkan nama kaset Anda = ')
-    bio_kaset['Kode kaset'] = input('Masukkan kode kaset Anda = ')
-    bio_kaset['Genre kaset'] = input('Masukkan genre kaset Anda = ')
-    bio_kaset['Jumlah kaset'] = int(input('Masukkan jumlah kaset = '))
-    jaminan['Nomor telefon'] = input('Masukkan nomor telefon Anda = ')
-    nik_plgnsewa = input("Masukkan NIK Anda = ")
-    nik_plgn.append(nik_plgnsewa)
-    bio_plgn['Alamat'] = input('Alamat Rumah = ')
+def halamanutama():
+    JudulProgram1 = "PROGRAM SEWA & BELI KASET"
+    JudulProgram2 = "TOKO INDENTURE DISC"
+    print(50 * "=")
+    print(JudulProgram1.center(50))
+    print(JudulProgram2.center(50))
+    print(50 * "=")
 
-def PeminjamanMember():
-    Formulir_sewa()
-    # Mamastikan data login dan registrasi
-    print("\nPastikan data yang anda masukkan sudah benar")
-    print("Name kaset = ", bio_kaset['Nama kaset'])
-    print("Jumlah kaset = ", bio_kaset['Jumlah kaset'])
-    print("Kode kaset = ", bio_kaset['Kode kaset'])
-    print("Genre kaset = ", bio_kaset['Genre kaset'])
-    print("No.Telepon = ", jaminan['Nomor telefon'])
-    print("NIK = ", nik_plgn)
-    print("Alamat = ", bio_plgn['Alamat'])
-    print(tanggal_pinjam.strftime("Tanggal Peminjaman = %d/%m/%Y, %H:%M:%S"))
-    print(tanggal_kembali.strftime("Tanggal Kembali = %d/%m/%Y, %H:%M:%S"))
+def login():
+    global nama_plgn
+    global nik_plgn
+    print('\n')
+    jdl_login = "####   Login Member   ####"
+    print(jdl_login.center(50))
+    nama_plgn = input("Nama member = ")
+    nik_plgn = input("NIK         = ")
+    print(50 * "-")
 
-    ceka = input("\nApakah data yang anda masukan sudah benar ? (y/t) = ")
-    print()
-    if ceka == "y":
-        print("""
-______________________________________________________________
-|               KARTU PEMINJAMAN INDENTURE DISC              |
-|                 Jln.Gagak No.15, Surakarta                 |
---------------------------------------------------------------
-
-            """)
-        IsikartuPeminjamandanPengembalian()
-        cekb = input("Apakah Anda ingin melanjutkan transaksi pembayaran? (y/t) = ")
-        if cekb == "y":
-            StrukPeminjamanKasetMember()
-            cekc = input("Apakah Anda ingin melakukan transaksi lainnya? (y/t) = ")
-            if cekc == "y":
-                show_menu_member()
-        else:
-            sys.exit()
+def registrasi():
+    global nama_plgn, nik_plgn, tempat_lahir, tanggal_lahir, nomor_telefon, alamat
+    if (Que2.upper() == "Y"):
+        jdl_reg = "####   Registrasi Member   ####"
+        print("\n", jdl_reg.center(50))
+        nama_plgn = input("Masukkan nama Anda = ")
+        nik_plgn = input("Masukkan NIK Anda = ")
+        tempat_lahir = input("Tempat lahir = ")
+        tanggal_lahir = input("Tanggal lahir (contoh : 11 Januari 2002) = ")
+        nomor_telefon = input("Masukkan nomor telefon Anda = ")
+        alamat = input("Alamat Rumah = ")
+        # memastikan data yang dimasukkan benar
+        print(50 * "=")
+        print("Pastikan data yang anda masukkan sudah benar.\n")
+        print("Nama = ", nama_plgn)
+        print("NIK = ", nik_plgn)
+        print("Tempat/Tanggal lahir = ", tempat_lahir, ",", tanggal_lahir)
+        print("Nomor telefon = ", nomor_telefon)
+        print("Alamat = ", alamat)
+        print(50 * "_")
+        biodata = """\nNama = {}\nNIK = {}\nTempat/Tanggal lahir = {}\nNomor Telefon = {}
+Alamat = {}\n""".format(nama_plgn, nik_plgn, tempat_lahir + "," + tanggal_lahir, nomor_telefon, alamat)
+        database = open("databasemember.txt", "a")
+        database.write(biodata)
+        database.close()
     else:
-        Formulir_sewa()
+        pass
 
-def PeminjamanNonmember():
-    Formulir_sewa()
-    # Mamastikan data login dan registrasi
-    print("\nPastikan data yang anda masukkan sudah benar")
-    print("Name kaset   = ", bio_kaset['Nama kaset'])
-    print("Jumlah kaset = ", bio_kaset['Jumlah kaset'])
-    print("Kode kaset   = ", bio_kaset['Kode kaset'])
-    print("Genre kaset  = ", bio_kaset['Genre kaset'])
-    print("No.Telepon   = ", jaminan['Nomor telefon'])
-    print("NIK          = ", nik_plgn)
-    print("Alamat       = ", bio_plgn['Alamat'])
-    print(tanggal_pinjam.strftime("Tanggal Peminjaman = %d/%m/%Y, %H:%M:%S"))
-    print(tanggal_kembali.strftime("Tanggal Kembali = %d/%m/%Y, %H:%M:%S"))
-    cek2 = input("\nApakah data yang Anda masukkan sudah benar ? (y/t) = ")
-    print()
-    if cek2 == "y":
-        print("""
-______________________________________________________________
-|               KARTU PEMINJAMAN INDENTURE DISC              |
-|                 Jln.Gagak No.15, Surakarta                 |
---------------------------------------------------------------
+def show_menu_nonmember():
+    print("\n")
+    judul_menu = "Pilih Menu"
+    print(judul_menu.center(50, '-'))
+    print("[1]  Peminjaman Kaset")
+    print("[2]  Pengembalian Kaset")
+    print("[3]  Pembelian Kaset")
+    print("[4]  Keluar")
+    print(50 * "-")
+    pilih_menu = input("Pilih menu --> ")
+    print("\n")
 
-            """)
-        IsikartuPeminjamandanPengembalian()
-        cek3 = input("Apakah Anda ingin melanjutkan transaksi pembayaran? (y/t) = ")
-        if cek3 == 'y':
-            StrukPeminjamanPembelianNonMember()
-            cek4 = input("Apakah Anda ingin melakukan transaksi lainnya? (y/t) = ")
-            if cek4 == "y":
-                show_menu_nonmember()
-        else:
+    if pilih_menu == '1':
+        PeminjamanNonmember()
+    elif pilih_menu == '2':
+        PengembalianNonMember()
+    elif pilih_menu == '3':
+        Pembelian()
+    elif pilih_menu == '4':
+        halamanutama()
+        sys.exit()
+    else:
+        print("Maaf nomor yang Anda masukkan tidak ada!!")
+
+def show_menu_member():
+    print("\n")
+    judul_menu = "Pilih Menu"
+    print(judul_menu.center(50, "-"))
+    print("[1]  Peminjaman Kaset")
+    print("[2]  Pengembalian Kaset")
+    print("[3]  Pembelian Kaset")
+    print("[4]  Keluar")
+    print(50 * "-")
+    pilih_menu = input("Pilih menu --> ")
+    print("\n")
+
+    if pilih_menu == '1':
+        PeminjamanMember()
+    elif pilih_menu == '2':
+        PengembalianMember()
+    elif pilih_menu == '3':
+        Pembelian()
+    elif pilih_menu == '4':
+        halamanutama()
+        sys.exit()
+    else:
+        print("Maaf nomor yang Anda masukkan tidak ada!!")
+
+def Tabel_hargasewa():
+    print('''
+    ___________________________________________________
+    |  No |   Genre Film   |  Kode Film  | Harga Beli |
+    ---------------------------------------------------
+    |  1. |  Thriller      |      A      |    8000    | 
+    |  2. |  Comedy        |      B      |    6000    |
+    |  3. |  Romance       |      C      |    6000    |
+    |  4. |  Action        |      D      |    7000    |
+    |  5. |  Drama         |      E      |    5000    |
+    --------------------------------------------------- ''')
+
+def Formulirsewa_member():
+    global jaminan, bio_kaset
+    print("\nSilahkan masukkan data dibawah ini untuk melengkapi langkah peminjaman kaset")
+    bio_kaset['Nama kaset'] = input('\nMasukkan nama kaset Anda    = ')
+    bio_kaset['Kode kaset'] = input('Masukkan kode kaset Anda    = ')
+    bio_kaset['Genre kaset'] = input('Masukkan genre kaset Anda   = ')
             sys.exit()
     else:
         Formulir_sewa()
