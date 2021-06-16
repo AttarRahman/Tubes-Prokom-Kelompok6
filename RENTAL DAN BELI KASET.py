@@ -129,7 +129,7 @@ def Formulirsewa_member():
     bio_kaset['Nama kaset'] = input('\nMasukkan nama kaset Anda    = ')
     bio_kaset['Kode kaset'] = input('Masukkan kode kaset Anda    = ')
     bio_kaset['Genre kaset'] = input('Masukkan genre kaset Anda   = ')
-        bio_kaset['Jumlah kaset'] = int(input('Masukkan jumlah kaset       = '))
+    bio_kaset['Jumlah kaset'] = int(input('Masukkan jumlah kaset       = '))
     jaminan = input('Masukkan nomor telefon Anda = ')
 
 def Formulirsewa_nonmember():
