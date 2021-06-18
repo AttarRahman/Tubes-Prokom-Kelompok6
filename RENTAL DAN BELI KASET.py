@@ -33,7 +33,7 @@ date2 = 0
 
 
 def halamanutama():
-    # menampilkan header
+    #menampilkan header
     judulprogram1 = "PROGRAM SEWA & BELI KASET"
     judulprogram2 = "TOKO INDENTURE DISC"
     print(50 * "=")
@@ -43,7 +43,7 @@ def halamanutama():
 
 
 def login():
-    # menampilkan halaman login dan menginput data login
+    #menampilkan halaman login dan menginput data login
     global nama_plgn, nik_plgn
     print('\n')
     jdl_login = "####   Login Member   ####"
@@ -54,7 +54,7 @@ def login():
 
 
 def registrasi():
-    # menampilkan dan menginput data registrasi
+    #menampilkan dan menginput data registrasi
     global nama_plgn, nik_plgn, tempat_lahir, tanggal_lahir, nomor_telefon, alamat
     if que2 == "Y" or que2 == "y":
         jdl_reg = "####   Registrasi Member   ####"
@@ -65,7 +65,7 @@ def registrasi():
         tanggal_lahir = input("Tanggal lahir (contoh : 11 Januari 2002) = ")
         nomor_telefon = input("Masukkan nomor telefon Anda = ")
         alamat = input("Alamat Rumah = ")
-        # memastikan data yang dimasukkan sudah benar
+        #memastikan data yang dimasukkan sudah benar
         print(50 * "=")
         print("Pastikan data yang anda masukkan sudah benar.\n")
         print("Nama = ", nama_plgn)
@@ -74,7 +74,7 @@ def registrasi():
         print("Nomor telefon = ", nomor_telefon)
         print("Alamat = ", alamat)
         print(50 * "_")
-        # menyimpan data kedalam database
+        #menyimpan data kedalam database
         biodata = """\nNama = {}\nNIK = {}\nTempat/Tanggal lahir = {}\nNomor Telefon = {}
 Alamat = {}\n""".format(nama_plgn, nik_plgn, tempat_lahir + "," + tanggal_lahir, nomor_telefon, alamat)
         database = open("databasemember.txt", "a")
@@ -85,7 +85,7 @@ Alamat = {}\n""".format(nama_plgn, nik_plgn, tempat_lahir + "," + tanggal_lahir,
 
 
 def show_menu_nonmember():
-    # menampilkan pilihan menu utama untuk non member
+    #menampilkan pilihan menu utama untuk non member
     print("\n")
     judul_menu = "Pilih Menu"
     print(judul_menu.center(50, '-'))
@@ -176,10 +176,10 @@ def formulirsewa_nonmember():
 
 def peminjaman_member():
     global date1, date2, date0, tanggal_pinjam, batas_pinjam
-    # menampilkan tabel dan formulir peminjaman kaset
+    #menampilkan tabel dan formulir peminjaman kaset
     tabel_hargasewa()
     formulirsewa_member()
-    # memastikan data formulir peminjaman kaset
+    #memastikan data formulir peminjaman kaset
     print("\nPastikan data yang anda masukkan sudah benar")
     print("Name kaset   = ", bio_kaset['Nama kaset'])
     print("Jumlah kaset = ", bio_kaset['Jumlah kaset'])
@@ -188,7 +188,7 @@ def peminjaman_member():
     print("No.Telepon   = ", jaminan)
     print("NIK          = ", nik_plgn)
     print("Alamat       = ", alamat)
-    # akumulasi tanggal pinjam dan tanggal pengembalian
+    #akumulasi tanggal pinjam dan tanggal pengembalian
     tanggal_pinjam = input('Tanggal mulai peminjaman kaset (YYYY-MM-DD) = ')
     year, month, day = map(int, tanggal_pinjam.split('-'))
     date0 = datetime.datetime(year, month, day)
@@ -198,7 +198,7 @@ def peminjaman_member():
     date2 = datetime.datetime(year, month, day)
     print("Tanggal pinjam            = ", tanggal_pinjam)
     print("Tangal Batas Pengembalian =", batas_pinjam)
-    # menampilkan kartu peminjaman kaset
+    #menampilkan kartu peminjaman kaset
     ques1 = input("\nApakah data yang anda masukan sudah benar ? (y/t) = ")
     print()
     if ques1.upper() == "Y":
@@ -227,7 +227,7 @@ def peminjaman_nonmember():
     # menampilkan tabel dan formulir peminjaman kaset
     tabel_hargasewa()
     formulirsewa_nonmember()
-    # memastikan data formulir peminjaman kaset
+    #memastikan data formulir peminjaman kaset
     print("\nPastikan data yang anda masukkan sudah benar")
     print("Name kaset   = ", bio_kaset['Nama kaset'])
     print("Jumlah kaset = ", bio_kaset['Jumlah kaset'])
@@ -236,7 +236,7 @@ def peminjaman_nonmember():
     print("No.Telepon   = ", jaminan)
     print("NIK          = ", nik_plgn)
     print("Alamat       = ", alamat)
-    # akumulasi tanggal pinjam dan tanggal pengembalian
+    #akumulasi tanggal pinjam dan tanggal pengembalian
     tanggal_pinjam = input('Tanggal mulai peminjaman kaset (YYYY-MM-DD) = ')
     year, month, day = map(int, tanggal_pinjam.split('-'))
     date0 = datetime.datetime(year, month, day)
@@ -246,7 +246,7 @@ def peminjaman_nonmember():
     date2 = datetime.datetime(year, month, day)
     print("Tanggal pinjam            = ", tanggal_pinjam)
     print("Tangal Batas Pengembalian =", batas_pinjam)
-    # menampilkan kartu peminjaman kaset
+    #menampilkan kartu peminjaman kaset
     ques1 = input("\nApakah data yang Anda masukkan sudah benar ? (y/t) = ")
     print()
     if ques1.upper() == "Y":
@@ -271,7 +271,7 @@ ______________________________________________________________
 
 def struk_peminjaman_pengembalian_member():
     global harga, date2, diskon, denda, genre_kaset, nomor_kartupeminjaman, totalharga, jumlahpesan, menu
-    # perhitungan biaya peminjaman dan pengembalian kaset member
+    #perhitungan biaya peminjaman dan pengembalian kaset member
     kode_kaset = bio_kaset['Kode kaset']
     jumlahpesan = bio_kaset['Jumlah kaset']
     if kode_kaset == "A":
@@ -309,7 +309,7 @@ def struk_peminjaman_pengembalian_member():
         harga = "-"
         diskon = "-"
         totalharga = "-"
-    # menampilkan pilihan metode pembayaran
+    #menampilkan pilihan metode pembayaran
     print(""" 
     Untuk melakukan transaksi pembayaran silahkan pilih metode pembayaran Anda!
                     ==============================
@@ -331,7 +331,7 @@ dari harga sewa, pelunasan akan dilakukan setelah kaset dikembalikan.
              """)
         print("Total harga yang harus Anda bayarkan = Rp", totalharga+denda)
         bayar = int(input("Masukkan uang tunai Anda             = Rp"))
-        # metode pembayaran = Tunai
+        #metode pembayaran = Tunai
         print("\n")
         print("="*45)
         nama = "STRUK PEMBAYARAN"
@@ -353,7 +353,7 @@ dari harga sewa, pelunasan akan dilakukan setelah kaset dikembalikan.
         print("-"*45)
         print("\n===========Terimakasih,Selamat Datang Kembali============")
     else:
-        # metode pembayaran = Ovo,Transfer, dan Dana
+        #metode pembayaran = Ovo,Transfer, dan Dana
         print("""
 Untuk peminjaman total harga yang dibayarkan merupakan 50% 
 dari harga sewa, pelunasan akan dilakukan setelah kaset dikembalikan.
@@ -455,6 +455,7 @@ Batas waktu pembayaran Anda 10 menit, silahkan melakukan transaksi segera.""")
 
 def struk_peminjaman_pembelian_nonmember():
     global harga, diskon, denda, genre_kaset, nomor_kartupeminjaman, totalharga, jumlahpesan, menu
+    # perhitungan biaya peminjaman dan pengembalian kaset non member
     kode_kaset = bio_kaset['Kode kaset']
     jumlahpesan = bio_kaset['Jumlah kaset']
     if kode_kaset == "A":
@@ -492,6 +493,7 @@ def struk_peminjaman_pembelian_nonmember():
         harga = "-"
         diskon = "-"
         totalharga = "-"
+    # menampilkan pilihan metode pembayaran
     print(""" 
         Untuk melakukan transaksi pembayaran silahkan pilih metode pembayaran Anda!
                         ==============================
@@ -633,9 +635,10 @@ Batas waktu pembayaran Anda 10 menit, silahkan melakukan transaksi segera.""")
             print("\n===========Terimakasih,Selamat Datang Kembali============")
         else:
             pass
-
+        
 
 def isikartu_peminjaman_dan_pengembalian():
+    # menampilkan data yang telah di input pada formulir peminjaman dan pengembalian dalam kartu
     print("  Nomor Nota                = ", nomor_kartupeminjaman)
     print("  NIK                       = ", nik_plgn)
     print("  Alamat                    = ", alamat)
@@ -647,12 +650,12 @@ def isikartu_peminjaman_dan_pengembalian():
 
 
 def pengembalian_member():
+    # menginput data pengembalian kaset untuk kaset yang telah di pinjam oleh member
     global date2, nomor_kartupeminjaman
-    # menginput nomor kartu peminjaman member
     nomor_kartupeminjaman = input("Masukkan nomor kartu peminjaman Anda = ")
     print("Apakah benar %s nomor kartu peminjaman Anda? (y/t)" % nomor_kartupeminjaman)
     cek = input(">>> ")
-    # menampilkan kartu pengembalian member
+    # menginput tanggal wajib kembali (pengembalian) dan tanggal mengembalikan kaset
     if cek.upper() == "Y":
         tanggal_kembali = input('Tanggal Anda mengembalikan kaset YYYY-MM-DD format = ')
         year, month, day = map(int, tanggal_kembali.split('-'))
