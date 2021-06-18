@@ -648,9 +648,11 @@ def isikartu_peminjaman_dan_pengembalian():
 
 def pengembalian_member():
     global date2, nomor_kartupeminjaman
+    # menginput nomor kartu peminjaman member
     nomor_kartupeminjaman = input("Masukkan nomor kartu peminjaman Anda = ")
     print("Apakah benar %s nomor kartu peminjaman Anda? (y/t)" % nomor_kartupeminjaman)
     cek = input(">>> ")
+    # menampilkan kartu pengembalian member
     if cek.upper() == "Y":
         tanggal_kembali = input('Tanggal Anda mengembalikan kaset YYYY-MM-DD format = ')
         year, month, day = map(int, tanggal_kembali.split('-'))
@@ -677,9 +679,11 @@ ______________________________________________________________
 
 def pengembalian_nonmember():
     global date2, nomor_kartupeminjaman
+    # menginput nomor kartu peminjaman nonmember
     nomor_kartupeminjaman = input("Masukkan nomor kartu peminjaman Anda = ")
     print("Apakah benar %s nomor kartu peminjaman Anda? (y/t)" % nomor_kartupeminjaman)
     cek = input(">>> ")
+    # menampilkan kartu pengembalian nonmember
     if cek.upper() == "Y":
         tanggal_kembali = input('Tanggal Anda mengembalikan kaset YYYY-MM-DD format = ')
         year, month, day = map(int, tanggal_kembali.split('-'))
@@ -702,6 +706,7 @@ ______________________________________________________________
 
 
 def tabel_hargabeli():
+    # menampilkan tabel harga beli kaset
     print('''
     ___________________________________________________
     |  No |   Genre Film   |  Kode Film  | Harga Beli |
@@ -716,6 +721,7 @@ def tabel_hargabeli():
 
 def pembelian():
     global jumlahpesan, genre_kaset, harga, diskon, totalharga, menu
+    # menginput data formulir pembelian kaset
     print("""Diskon Alert !!!
 Untuk para pelanggan setia Toko Indenture Disc, ada promo diskon 10% 
 untuk pembelian kaset semua genre yang ada di Toko Indenture Disc. 
@@ -726,6 +732,7 @@ Diskon berlaku untuk member maupun nonmember ~~~""")
     bio_kaset['Kode kaset'] = input('Masukkan kode kaset Anda = ')
     bio_kaset['Genre kaset'] = input('Masukkan genre kaset Anda = ')
     bio_kaset['Jumlah kaset'] = int(input('Masukkan jumlah kaset = '))
+    # perhitungan biaya pembelian kaset
     kode_kaset = bio_kaset['Kode kaset']
     jumlahpesan = bio_kaset['Jumlah kaset']
     if kode_kaset == "A":
@@ -763,6 +770,7 @@ Diskon berlaku untuk member maupun nonmember ~~~""")
         harga = "-"
         diskon = "-"
         totalharga = "-"
+    # menampilkan pilihan metode pembayaran
     print(""" 
 Untuk melakukan transaksi pembayaran silahkan pilih metode pembayaran Anda!
                 ==============================
@@ -801,7 +809,7 @@ Untuk melakukan transaksi pembayaran silahkan pilih metode pembayaran Anda!
         else:
             sys.exit()
     else:
-        # Melalui Ovo,Transfer, dan Dana
+        # metode pembayaran = Ovo,Transfer, dan Dana
         print("Total harga yang harus Anda bayarkan = Rp", totalharga)
         print(""" 
                     ____________________________________________________
@@ -892,6 +900,7 @@ Batas waktu pembayaran Anda 10 menit, silahkan melakukan transaksi segera.""")
             print("\n===========Terimakasih,Selamat Datang Kembali============")
         else:
             pass
+        # memastikan apakah masih terdapat transaksi yang ingin dilakukan
         cek1 = input("Apakah Anda ingin melakukan transaksi lainnya? (y/t) = ")
         if cek1.upper() == "Y":
             show_menu_member()
